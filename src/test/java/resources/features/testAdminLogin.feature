@@ -1,47 +1,27 @@
-Feature: Customer Login
+Feature: Admin Login
 
-  Scenario: Login with valid data
-    Given user is on customer login page
+  Scenario Outline: Login with valid data( Login successfully)
+    Given administrators is on admin login page
     And verify login page
-    When user select on your name
-    And user click on login button
-    Then message will be display
+    When input email as <email>
+    And input password as <password>
+    And administrators click on login button
+    Then the <message> will be display
+    Examples:
+      | email           | password | message            |
+      | Admin@gmail.com | password | Login successfully |
 
-  Scenario: Customer made deposit successfully
-    Given user is on customer login page
+  Scenario Outline: Login with invalid data( Login unsuccessfully)
+    Given administrators is on admin login page
     And verify login page
-    When user select on your name
-    And user click on login button
-    When click on 'Deposit' button
-    And input amount
-    Then click on 'Deposit' button to deposit
-    Then message will be display
-
-  Scenario: Customer made deposit with invalid data
-    Given user is on customer login page
-    And verify login page
-    When user select on your name
-    And user click on login button
-    When click on 'Deposit' button
-    Then click on 'Deposit' button to deposit
-    Then message will be display
-
-  Scenario: Customer in transaction page
-    Given user is on customer login page
-    And verify login page
-    When user select on your name
-    And user click on login button
-    When click on 'Transaction' button
-    Then click on 'Reset' button
-    When click on 'Back' button
-    Then message will be display
-
-  Scenario: Customer in transaction page
-    Given user is on customer login page
-    And verify login page
-    When user select on your name
-    And user click on login button
-    When click on 'Transaction' button
-    Then click on 'Reset' button
-    When click on 'Back' button
-    Then message will be display
+    When input email as <email>
+    And input password as <password>
+    And administrators click on login button
+    Then the <message> will be display
+    Examples:
+      | email           | password | message              |
+      | admin@gmail.com | password | Login unsuccessfully |
+      | Admin@gmail.com | Password | Login unsuccessfully |
+      |                 | password | Login unsuccessfully   |
+      | admin@gmail.com |          | Login unsuccessfully   |
+      |                 |          | Login unsuccessfully   |
