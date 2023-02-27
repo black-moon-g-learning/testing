@@ -19,7 +19,7 @@ public class AdminLogin {
     String projectPath = System.getProperty("user.dir");
 
     @Given("administrators is on admin login page")
-    public void administrators_is_on_admin_login_page() throws Throwable {
+    public void administratorsIsOnAdminLoginPage() throws Throwable {
         System.out.println("Welcome to admin login page");
         System.setProperty("Webdriver.chrome.driver", projectPath + "/driver/chromedriver.exe");
         driver = new ChromeDriver();
@@ -30,7 +30,7 @@ public class AdminLogin {
 
 
     @Given("verify login page")
-    public void verify_login_page() throws InterruptedException {
+    public void verifyLoginPage() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         //Verify url
         String loginPageUrl = driver.getCurrentUrl();
@@ -43,29 +43,28 @@ public class AdminLogin {
     }
 
 
-    /*Select customer*/
+
 
     @When("^input email as (.+)$")
-    public void input_email_as(String email) throws InterruptedException {
+    public void inputEmailAs(String email) throws InterruptedException {
         driver.findElement(By.xpath("/html/body/main/section/div/div/div/div[1]/div/div[2]/form/div[1]/input")).sendKeys(email);
         Thread.sleep(2*1000);
     }
-    /*Login*/
 
     @And("^input password as (.+)$")
-    public void input_password_as(String password) throws InterruptedException {
+    public void inputPasswordAs(String password) throws InterruptedException {
         driver.findElement(By.xpath("/html/body/main/section/div/div/div/div[1]/div/div[2]/form/div[2]/input")).sendKeys(password);
         Thread.sleep(2*1000);
     }
 
     @Then("administrators click on login button")
-    public void user_click_on_login_button() throws InterruptedException {
+    public void userClickOnLoginButton() throws InterruptedException {
         driver.findElement(By.xpath("/html/body/main/section/div/div/div/div[1]/div/div[2]/form/div[3]/button")).click();
         Thread.sleep(2 * 1000);
     }
 
     @Then("^the (.+) will be display$")
-    public void the_will_be_display(String message) {
+    public void theWillBeDisplay(String message) {
         driver.quit();
         out.println("Result: "+ message);
     }
