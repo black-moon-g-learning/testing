@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/resources/features/testAdminLogin.feature",
+        features = "src/test/java/resources",
         plugin = { "json:target/cucumber.json", "pretty", "html:target/cucumber-reports" }
 )
 class RunAdminGLearning {
